@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">Project</mat-toolbar>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Log In</h4>
+      
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="modal-body mx-3">
+      <div class=" mb-2">
+       
+        <mat-form-field>
+            <input matInput placeholder="Username"   formControlName="username">
+            <mat-icon matPrefix >person</mat-icon>
+          </mat-form-field>
+      </div>
+
+      <div class=" mb-4">
+
+        <mat-form-field>
+            <input matInput placeholder="Password"  type="password"  formControlName="password">
+            <mat-icon matPrefix >person</mat-icon>
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button mdbBtn color="primary" class="waves-light" mdbWavesEffect>Log In</button>
+    </div>
+    </form>
+  </div>
+</div>
