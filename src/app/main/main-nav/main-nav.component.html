@@ -1,36 +1,45 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)" >
-    <mat-toolbar color="primary" >
-        <span *ngIf="(isHandset$ | async)">Menu</span>
-      <span *ngIf="!(isHandset$ | async)">btmd</span>
-    </mat-toolbar>
-    
-    <mat-nav-list *ngIf="taskList!={}">
-        <a mat-list-item *ngFor="let item of taskList" routerLink="{{item.path}}">{{item.task}}</a>
-        <a mat-list-item [routerLink]="['/login']">login</a> 
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="(isHandset$ | async)"
-        >
-        <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
-      </button>
-      <span *ngIf="(isHandset$ | async)">btmd</span>
-      <span class="spacer"></span>
-      {{uname}}
-      <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
+<ng-container >
+    <mat-toolbar color="primary" class="example-header">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="(isHandset$ | async)"
+          >
+          <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
         </button>
-    </mat-toolbar>
-    <router-outlet (activate)="componentAdded($event)" (deactivate)='onDeactivate()'></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+        <span >btmd</span>
+        <span class="spacer"></span>
+        {{uname}}
+        <button mat-icon-button  [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon>keyboard_return</mat-icon>
+              <span>Log Out</span>
+            </button>
+          </mat-menu>
+      </mat-toolbar>
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="!(isHandset$ | async)" class="example-sidenav" fixedInViewport="false" >
+      <mat-nav-list *ngIf="taskList!={}">
+          <a mat-list-item *ngFor="let item of taskList" routerLink="{{item.path}}" routerLinkActive="active">{{item.task}}</a>
+          <a mat-list-item [routerLink]="['/login']">login</a> 
+      </mat-nav-list>
+    </mat-sidenav>
+  
+      <mat-sidenav-content>
+      
+          <router-outlet (activate)="componentAdded($event)" (deactivate)='onDeactivate()'></router-outlet>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+  
+  </ng-container>
+  
+  
