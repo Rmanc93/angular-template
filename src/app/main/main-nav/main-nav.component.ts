@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
-import { roleList } from 'src/app/Utils/roleList';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -16,10 +15,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class MainNavComponent {
 
   @ViewChild('drawer') drawer: MatSidenav;
-  
-  uname: string = '';
-  taskList: any = "";
-  roleList = roleList;
+
+  uname = '';
+  taskList: any = '';
 
   options: FormGroup;
 
@@ -34,15 +32,15 @@ export class MainNavComponent {
     private router: Router,
     private cookieService: CookieService,
     fb: FormBuilder) {
-      this.options = fb.group({
-        bottom: 0,
-        fixed: false,
-        top: 0
-      });
+    this.options = fb.group({
+      bottom: 0,
+      fixed: false,
+      top: 0
+    });
 
-      if (!this.cookieService.check('UName')){
-        this.router.navigate(['./login']);
-      }
+    if (!this.cookieService.check('UName')) {
+      this.router.navigate(['./login']);
+    }
   }
 
   componentAdded(component) {
@@ -50,10 +48,10 @@ export class MainNavComponent {
       this.router.navigate(['./login']);
     }
 
-    console.log(component.constructor.name=='LoginComponent');
+    // tslint:disable-next-line: triple-equals
 
     // if(component.constructor.name!='LoginComponent'){
-      
+
     //   if(!this.isHandset$){
     //     this.sideNav=true;
     //   }
@@ -61,40 +59,35 @@ export class MainNavComponent {
     //     this.sideNav=true;
     //     this.drawer.open();
     //   }
-      
+
     // }else{
     //   if(this.drawer){
     //     this.sideNav=false;
     //     this.drawer.close();
     //   }
-      
+
     // }
 
     if (this.cookieService.check('UName')) {
       this.uname = this.cookieService.get('UName');
-      console.log('bbxxx', this.taskList);
-     
-        console.log('bb', this.roleList);
-        this.taskList = this.roleList[this.cookieService.get('type')];
-      
+
     } else {
-      this.router.navigate(['./']);
+      this.router.navigate(['./login']);
     }
 
   }
 
-  logOut(){
-    if (this.cookieService.check('UName')){
-      this.cookieService.deleteAll()
+  logOut() {
 
-    }
+    this.cookieService.deleteAll('/');
+
 
     this.router.navigate(['./login']);
   }
 
-  onDeactivate(){
-  
-    }
-  
+  onDeactivate() {
+
+  }
+
 
 }

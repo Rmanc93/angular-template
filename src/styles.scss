@@ -4,6 +4,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
 @import "~ng-pick-datetime/assets/style/picker.min.css";
+@import '~viewerjs/dist/viewer.css';
+@import '~material-design-icons/iconfont/material-icons.css';
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -11,3 +13,4 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
   }
 
+  

@@ -8,20 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'btmd';
+  title = 'template';
   constructor(private cookieService: CookieService, private router: Router) {
-    if (!this.cookieService.check('UName')) {
-      console.log("component");
-      this.router.navigate(['./login']);
-    }
+    // if (!this.cookieService.check('UName')) {
+    //   // console.log("component");
+    //   this.router.navigate(['./login']);
+    // }
   }
   componentAdded(component) {
 
 
-    if (!this.cookieService.check('UName')) {
-      console.log(component);
-      this.router.navigate(['./login']);
-    }
+    // if (!this.cookieService.check('UName')) {
+    //   this.router.navigate(['./login']);
+    // }
 
   }
 }

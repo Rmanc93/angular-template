@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, InvalidLoginErrorDialog } from './login/login.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule, MatDialogModule, MatProgressBarModule } from '@angular/material';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
@@ -17,9 +17,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatInputModule,
     MatButtonModule,
     MDBBootstrapModule.forRoot(),
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatProgressBarModule
     
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent,InvalidLoginErrorDialog],
+  entryComponents:[InvalidLoginErrorDialog]
 })
 export class LogInModule { }

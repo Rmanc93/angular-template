@@ -2,8 +2,9 @@
 
 # compiled output
 /dist
-/tmp
 /out-tsc
+/src/generated
+/tmp
 
 # dependencies
 /node_modules
@@ -25,14 +26,22 @@
 !.vscode/extensions.json
 
 # misc
+/.firebase/
 /.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
+debug.log
+firebase-debug.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
+yarn-error.log
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+protractor-results*.txt
 
 # System Files
 .DS_Store

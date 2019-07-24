@@ -17,10 +17,9 @@
 //   padding-right: 0;
 // }
 
-.mat-nav-list a.active {
-  color: #1077f2;
-  background: #e8e8e8;
-}
+
+
+
 
 .spacer {
   flex: 1 1 auto;
@@ -38,8 +37,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  border-right: 1px solid #daeaf2;
+  width: 250px;
+  box-shadow: 1px 0px 3px grey;
 }
 
 .example-header {
@@ -49,5 +48,6 @@
   left: 0;
   right: 0;
 }
+
 
 
