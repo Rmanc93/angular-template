@@ -5,8 +5,9 @@
       aria-label="Toggle sidenav"
       mat-icon-button
       (click)="drawer.toggle()"
-      *ngIf="(isHandset$ | async)"
     >
+      <!-- *ngIf="(isHandset$ | async)"
+    > -->
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     Project Name <span class="spacer"></span> {{ uname }}
@@ -31,8 +32,8 @@
       class="example-sidenav"
       fixedInViewport="false"
     >
-      <!-- <mat-nav-list *ngIf="taskList != {}">
-        <a mat-list-item routerLink="/"
+       <mat-nav-list>
+        <a mat-list-item routerLink="/" (click)="drawer.toggle()"
           ><mat-icon>home</mat-icon> &nbsp;
           <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
             Home
@@ -40,16 +41,50 @@
         >
         <a
           mat-list-item
-          *ngFor="let item of taskList"
-          routerLink="{{ item.path }}"
+          routerLink="/qr"
+          (click)="drawer.toggle()"
         >
-          <mat-icon>{{ item.icon }}</mat-icon>
-          &nbsp;
           <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
-            {{ item.task }}
+            QR
           </h6>
         </a>
-      </mat-nav-list> -->
+        <a
+          mat-list-item
+          routerLink="/stamping"
+          (click)="drawer.toggle()"
+        >
+          <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
+           New Stamping
+          </h6>
+        </a>
+        <a
+        mat-list-item
+        routerLink="/stampingview"
+        (click)="drawer.toggle()"
+      >
+        <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
+         My Stampings
+        </h6>
+      </a>
+        <a
+          mat-list-item
+          routerLink="/employees"
+          (click)="drawer.toggle()"
+        >
+          <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
+           New Employee
+          </h6>
+        </a>
+        <a
+        mat-list-item
+        routerLink="/adminstampingview"
+        (click)="drawer.toggle()"
+      >
+        <h6 style="margin-bottom: 0; font-size:17px; font-weight: 400;">
+         Stampings
+        </h6>
+      </a>
+      </mat-nav-list> 
     </mat-sidenav>
 
     <mat-sidenav-content>

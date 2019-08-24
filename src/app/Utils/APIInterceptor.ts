@@ -4,12 +4,15 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { BasePath } from './basepath';
+
+
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
   constructor(private cookieService: CookieService, private router: Router) {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-      const apiReq = req.clone({ url: `http://10.71.65.172:8080/MobileService/${req.url}` });
+      const apiReq = req.clone({ url: BasePath +`${req.url}` });
     return next.handle(apiReq).pipe(
       retry(3),
       catchError(err => {

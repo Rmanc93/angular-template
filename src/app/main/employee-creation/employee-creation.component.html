@@ -1,0 +1,52 @@
+<div class="row" style="width: 100%; margin: 0 !important; padding: 5px;">
+  <div class="card card-cascade narrower mt-2 col-12">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">New Employee</h4>
+    </div>
+    <div class="card-body" style="text-align: center;">
+      <form [formGroup]="emplForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <input matInput formControlName="name" placeholder="First Name">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <input matInput formControlName="sName" placeholder="Surname">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <input matInput formControlName="username" placeholder="Username">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <input matInput formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <mat-label>Task</mat-label>
+            <mat-select formControlName="task">
+              <mat-option *ngFor="let elmnt of tasks" [value]="elmnt._links.self.href">
+                {{elmnt.ctlgJobNmbr}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Create</button>
+      </form>
+    </div>
+  </div>
+</div>

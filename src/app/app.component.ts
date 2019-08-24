@@ -10,17 +10,17 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'template';
   constructor(private cookieService: CookieService, private router: Router) {
-    // if (!this.cookieService.check('UName')) {
-    //   // console.log("component");
-    //   this.router.navigate(['./login']);
-    // }
+    if (!this.cookieService.check('UName')) {
+      // console.log("component");
+      this.router.navigate(['./login']);
+    }
   }
   componentAdded(component) {
 
 
-    // if (!this.cookieService.check('UName')) {
-    //   this.router.navigate(['./login']);
-    // }
+    if (!this.cookieService.check('UName')) {
+      this.router.navigate(['./login']);
+    }
 
   }
 }

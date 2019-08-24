@@ -50,7 +50,7 @@ export class MainNavComponent {
 
     // tslint:disable-next-line: triple-equals
 
-    // if(component.constructor.name!='LoginComponent'){
+    //  if(component.constructor.name!='LoginComponent'){
 
     //   if(!this.isHandset$){
     //     this.sideNav=true;

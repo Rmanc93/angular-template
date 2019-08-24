@@ -1,0 +1,100 @@
+<div class="row" style="width: 100%; margin: 0 !important; padding: 5px;">
+  <div class="card card-cascade narrower mt-2 col-12">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">My Stampings</h4>
+    </div>
+    <div class="card card-cascade narrower mt-5" style="margin: 20px !important;">
+      <div class="card-body">
+        <div class="form-group row">
+
+          <!-- <label class="col-sm-2 col-form-label">User</label>
+            <select class="custom-select col-sm-4 "  [(ngModel)]="user" ngDefaultControl
+            [ngClass]="{
+              'is-invalid': search && ! user
+            }"
+            >
+              <option value="1" selected>All</option>
+            </select> -->
+
+          <label class="col-sm-2 col-form-label">options</label>
+          <select class="custom-select col-sm-4 " [(ngModel)]="option" ngDefaultControl [ngClass]="{
+              'is-invalid': search && ! option
+            }">
+            <option value="1">One day</option>
+            <option value="2">One week</option>
+            <option value="3">One month</option>
+            <option value="4">One year</option>
+            <option value="5">Other</option>
+          </select>
+
+        </div>
+        <div class="form-group row" *ngIf="option==5">
+
+          <label class="col-sm-2 col-form-label">From Date</label>
+          <input readonly [max]="toDate" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+            aria-describedby="inputGroup-sizing-sm" class="form-control col-sm-4 " placeholder="From Date"
+            [(ngModel)]="fromDate" ngDefaultControl [ngClass]="{
+                'is-invalid': search && option==5 && ! fromDate
+              }" />
+          <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+
+          <label class="col-sm-2 col-form-label">To Date</label>
+          <input readonly [min]="fromDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+            aria-describedby="inputGroup-sizing-sm" class="form-control col-sm-4 " placeholder="To Date"
+            [(ngModel)]="toDate" ngDefaultControl [ngClass]="{
+                'is-invalid': search && option==5 && ! toDate
+              }" />
+          <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+
+        </div>
+
+        <button mdbBtn color="primary" style="float: right;" class="waves-light" mdbWavesEffect (click)="OnSearch()">
+          Search
+        </button>
+
+      </div>
+    </div>
+    <div class="card-body" style="text-align: center;" *ngIf="viewtable">
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="StampinId">
+            <th mat-header-cell *matHeaderCellDef> Stampin Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="StampinCode">
+            <th mat-header-cell *matHeaderCellDef> Stampin Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.stampCatalog.code}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="StampSign">
+            <th mat-header-cell *matHeaderCellDef> Stamp Sign </th>
+            <td mat-cell *matCellDef="let element"> {{element.stampCatalog.singType}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="Time">
+            <th mat-header-cell *matHeaderCellDef > Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.moblieDatetime | date:'medium'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="SuperEmployee">
+            <th mat-header-cell *matHeaderCellDef> SuperEmployee </th>
+            <td mat-cell *matCellDef="let element"> {{element.superEmp.username}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+      </div>
+
+    </div>
+  </div>
+</div>

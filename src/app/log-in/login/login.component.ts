@@ -49,82 +49,20 @@ export class LoginComponent implements OnInit {
             null,
             false
           );
-          return this.loginService.getUserByUname(
-            this.loginForm.get('username').value
-          );
+          return this.loginService.getUserByUname();
         })
       )
       .subscribe((res: any) => {
-        // console.log('vvvvv',res);
         if (res != null) {
           this.cookieService.set('UName', res.username, null, '/', null, false);
-          this.cookieService.set('type', res.role.role, null, '/', null, false);
-          this.cookieService.set(
-            'BName',
-            res.branchName,
-            null,
-            '/',
-            null,
-            false
-          );
-          this.cookieService.set(
-            'BCode',
-            res.branchCode,
-            null,
-            '/',
-            null,
-            false
-          );
+          this.cookieService.set('type', res.role.name, null, '/', null, false);
+          this.cookieService.set('id', res.id, null, '/', null, false);
            this.router.navigate(['./']);
         }
       },
        // tslint:disable-next-line: no-use-before-declare
        () => {  this.dialog.open(InvalidLoginErrorDialog); });
 
-    // if (this.loginForm.invalid) {
-    //   return;
-    // }
-
-    // this.logbtnclick=true;
-    // const subscription: Subscription = this.loginService
-    //   .getToken()
-    //   .pipe(
-    //     flatMap((res: any) => {
-    //       return this.loginService.isUser(
-    //         this.loginForm.value,
-    //         res.access_token
-    //       )
-    //     })
-    //   )
-    //   .subscribe((json: any) => {
-
-    //     console.log(json);
-
-    //     this.logbtnclick=false;
-    //     if (json != null) {
-    //       this.cookieService.set("UName", json[0][0], null, "/", null, false);
-    //       this.cookieService.set("type", json[0][2], null, "/", null, false);
-    //       this.cookieService.set("BName", json[0][3], null, "/", null, false);
-    //       this.cookieService.set("BCode", json[0][4], null, "/", null, false);
-    //       this.cookieService.set("role",json[0][1],null,"/",null,false)
-
-    //       this.comAccSer.getAccessToken(json[0][1]).subscribe((resacc:any)=>{
-    //         // console.log(resacc);
-    //         this.cookieService.set("at", resacc.access_token , null, "/", null, false);
-
-    //                   })
-
-    //                   this.router.navigate(["./"]);
-    //     } else {
-    //       this.dialog.open(InvalidLoginErrorDialog);
-    //     }
-    //   });
-    // this.subscriptions.push(subscription);
-
-    // const subscription1: Subscription = this.loginService.isUser(this.loginForm.value).subscribe((json: any) => {
-    //     console.log('0000', json[0]);
-
-    // })
     this.subscriptions.push(subscription1);
   }
 

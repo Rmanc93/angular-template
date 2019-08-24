@@ -1,0 +1,57 @@
+<div class="row" style="width: 100%; margin: 0 !important; padding: 5px;">
+  <div class="card card-cascade narrower mt-2 col-12">
+      <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">New Stamping</h4>
+        </div>
+    <div class="card-body" style="text-align: center;">
+     
+
+      <form [formGroup]="stampForm" (ngSubmit)="onSubmit()">
+        <!-- <div class="form-row">
+            <mat-form-field class="col-sm-12" [owlDateTimeTrigger]="dt2">
+                <input matInput placeholder="Favorite food"  [(ngModel)]="dateTime" [owlDateTime]="dt2" [ngModelOptions]="{standalone: true}"> 
+                <owl-date-time #dt2></owl-date-time>
+              </mat-form-field>
+              
+        </div> -->
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <mat-label>Employee</mat-label>
+            <mat-select formControlName="employee">
+              <mat-option *ngFor="let elmnt of employees"  [value]="elmnt._links.self.href">
+                {{elmnt.username}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12">
+            <mat-label>Catalog Stamping</mat-label>
+            <mat-select formControlName="stampCatalog">
+              <mat-option *ngFor="let elmnt of stmpctlg" [value]="elmnt._links.self.href" >
+                {{elmnt.code}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="form-row">
+          <mat-form-field class="col-sm-12" [owlDateTimeTrigger]="dt2">
+              <input matInput placeholder="Stamping"  [(ngModel)]="dateTime" [owlDateTime]="dt2" [ngModelOptions]="{standalone: true}"> 
+              <owl-date-time #dt2></owl-date-time>
+          </mat-form-field>
+        </div> -->
+
+        <div class="form-row">
+          <mat-form-field class="col-sm-12" [owlDateTimeTrigger]="dt1">
+              <input readonly matInput placeholder="Date & Time of Stamping"  formControlName="moblieDatetime" [owlDateTime]="dt1" > 
+              <owl-date-time #dt1></owl-date-time>
+          </mat-form-field>
+        </div>
+        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>

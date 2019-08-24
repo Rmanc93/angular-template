@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { QrService } from 'src/app/services/qr.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,15 +12,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class DashboardComponent implements OnInit {
   taskList1 = [];
-   constructor(
+  constructor(
     private router: Router,
     private cookieService: CookieService,
     iconRegistry: MatIconRegistry,
-     sanitizer: DomSanitizer
-    ) {
-      iconRegistry.addSvgIcon(
-        'baseline-thumb_up-24px',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/baseline-thumb_up-24px.svg'));
+    sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon(
+      'baseline-thumb_up-24px',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/baseline-thumb_up-24px.svg'));
 
     if (this.cookieService.check('UName')) {
 
@@ -37,7 +38,8 @@ export class DashboardComponent implements OnInit {
 
 
   }
+  
 
+  ngOnInit() { }
 
-  ngOnInit() {}
 }

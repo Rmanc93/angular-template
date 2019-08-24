@@ -21,7 +21,8 @@ import {
   MatCardModule,
   MatChipsModule,
   MatSnackBarModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSelectModule
 } from '@angular/material';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -36,6 +37,12 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { NgxViewerModule } from 'ngx-viewer';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { QrComponent } from './qr/qr.component';
+import { StampingComponent } from './stamping/stamping.component';
+import { EmployeeCreationComponent } from './employee-creation/employee-creation.component';
+import { StampingViewComponent } from './stamping-view/stamping-view.component';
+import { StampAdminViewComponent } from './stamp-admin-view/stamp-admin-view.component';
 
 @NgModule({
   imports: [
@@ -68,13 +75,20 @@ import { NgxViewerModule } from 'ngx-viewer';
     MatChipsModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    NgxViewerModule
+    MatSelectModule,
+    NgxViewerModule,
+    ZXingScannerModule
 
   ],
   declarations: [
     MainNavComponent,
     DashboardComponent,
     DialogComponent,
+    QrComponent,
+    StampingComponent,
+    EmployeeCreationComponent,
+    StampingViewComponent,
+    StampAdminViewComponent,
   ],
   entryComponents: [
     DialogComponent

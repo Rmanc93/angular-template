@@ -39,19 +39,16 @@ export class LoginService {
     return this.http.post('oauth/token', body.toString(),
       {
         headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-          .set('Authorization', 'Basic dHJ1c3RlZCBjbGllbnQ6c2VjcmV0')
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('Authorization', 'Basic aXN0Q2xpZW50OmlzdFNlY3JldA==')
       });
   }
 
-  getUserByUname(uname: string) {
-    const body: HttpParams = new HttpParams()
-      .set('uname', uname);
+  getUserByUname() {
+    
 
-
-    return this.http.post('api/userbyname', body.toString(), {
+    return this.http.get('api/owndetails', {
       headers: new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded')
         .set('Authorization', 'Bearer ' + this.cookieService.get('at'))
     });
   }
