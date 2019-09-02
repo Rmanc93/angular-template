@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
+    this.router.navigate['./login'];
     iconRegistry.addSvgIcon(
       'baseline-thumb_up-24px',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/baseline-thumb_up-24px.svg'));
@@ -40,6 +41,12 @@ export class DashboardComponent implements OnInit {
   }
   
 
-  ngOnInit() { }
+  ngOnInit() { 
+    if(this.cookieService.get('type') ==='ROLE_ADMIN'){
+      console.log('>>>>>>>>>>>');
+      
+      this.router.navigate['./adminstampingview'];
+    }
+  }
 
 }

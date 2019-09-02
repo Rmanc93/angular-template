@@ -77,6 +77,17 @@ export class MainNavComponent {
 
   }
 
+  changeLan(){
+    
+    if(this.cookieService.get('lng') === 'eng'){
+      this.cookieService.set('lng', 'itl', null, '/', null, false);
+    } else {
+      this.cookieService.set('lng', 'eng', null, '/', null, false);
+    }
+    
+    // this.cookieService.delete('lng');
+  }
+
   logOut() {
 
     this.cookieService.deleteAll('/');

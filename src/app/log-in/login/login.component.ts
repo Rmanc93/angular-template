@@ -23,13 +23,13 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private cookieService: CookieService,
-    public dialog: MatDialog  ) {
+    public dialog: MatDialog) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -57,11 +57,14 @@ export class LoginComponent implements OnInit {
           this.cookieService.set('UName', res.username, null, '/', null, false);
           this.cookieService.set('type', res.role.name, null, '/', null, false);
           this.cookieService.set('id', res.id, null, '/', null, false);
-           this.router.navigate(['./']);
+          this.cookieService.set('lng', 'eng', null, '/', null, false);
+          if (res.role.name === 'ROLE_ADMIN') {
+            this.router.navigate(['./adminstampingview']);
+          } else { this.router.navigate(['./stampingview']); }
         }
       },
-       // tslint:disable-next-line: no-use-before-declare
-       () => {  this.dialog.open(InvalidLoginErrorDialog); });
+        // tslint:disable-next-line: no-use-before-declare
+        () => { this.dialog.open(InvalidLoginErrorDialog); });
 
     this.subscriptions.push(subscription1);
   }
@@ -81,7 +84,7 @@ export class LoginComponent implements OnInit {
 })
 // tslint:disable-next-line: component-class-suffix
 export class InvalidLoginErrorDialog {
-  constructor(public dialogRef: MatDialogRef<InvalidLoginErrorDialog>) {}
+  constructor(public dialogRef: MatDialogRef<InvalidLoginErrorDialog>) { }
 
   onOkClick() {
     this.dialogRef.close();

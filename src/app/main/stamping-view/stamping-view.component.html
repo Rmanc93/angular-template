@@ -20,11 +20,11 @@
           <select class="custom-select col-sm-4 " [(ngModel)]="option" ngDefaultControl [ngClass]="{
               'is-invalid': search && ! option
             }">
-            <option value="1">One day</option>
-            <option value="2">One week</option>
-            <option value="3">One month</option>
-            <option value="4">One year</option>
-            <option value="5">Other</option>
+            <option value="1"><span *ngIf="(cookieService.get('lng') === 'eng')">One day</span><span *ngIf="(cookieService.get('lng') === 'itl')">1 giorno</span></option>
+            <option value="2"><span *ngIf="(cookieService.get('lng') === 'eng')">One week</span><span *ngIf="(cookieService.get('lng') === 'itl')">Una settimana</span></option>
+            <option value="3"><span *ngIf="(cookieService.get('lng') === 'eng')">One month</span><span *ngIf="(cookieService.get('lng') === 'itl')">Un mese</span></option>
+            <option value="4"><span *ngIf="(cookieService.get('lng') === 'eng')">One year</span><span *ngIf="(cookieService.get('lng') === 'itl')">Un anno</span></option>
+            <option value="5"><span *ngIf="(cookieService.get('lng') === 'eng')">Customize</span><span *ngIf="(cookieService.get('lng') === 'itl')">Personalizzare</span></option>
           </select>
 
         </div>

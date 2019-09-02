@@ -40,8 +40,8 @@ import { NgxViewerModule } from 'ngx-viewer';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QrComponent } from './qr/qr.component';
 import { StampingComponent } from './stamping/stamping.component';
-import { EmployeeCreationComponent } from './employee-creation/employee-creation.component';
 import { StampingViewComponent } from './stamping-view/stamping-view.component';
+import { EmployeeCreationComponent } from './employee-creation/employee-creation.component';
 import { StampAdminViewComponent } from './stamp-admin-view/stamp-admin-view.component';
 
 @NgModule({
