@@ -20,7 +20,9 @@ export class StampAdminViewComponent implements OnInit {
 
   displayedColumns: string[] = ['StampinId', 'employee', 'name', 'StampinCode', 'StampSign', 'mobileTime', 'servrTime', 'SuperEmployee'];
   dataSource;
-  displayedColumnsPdf: string[] = ['Stampin Id', 'Employee', 'Name', 'Stampin Code', 'Stamp Sign', 'Mobile Time', 'Servr Time', 'Super Employee'];
+  displayedColumnsPdf: string[] = ['Stampin Id', 'Employee', 'Name', 'Stampin Code', 'Stamp Sign', 'Mobile Time', 'Server Time', 'Super Employee'];
+  displayedColumnsPdfitl: string[] =['ID timbratura','Dipendente','Nome dipendente','Codice di timbratura','Segno di timbratura',
+  'Data e ora cellulare','Orario del server','Dipendente Super']
   pdfData = [];
   filterdPdfData = [];
   viewtable = false;
@@ -33,6 +35,7 @@ export class StampAdminViewComponent implements OnInit {
   fileName = '';
   startDate: Date;
   endDate: Date;
+ 
 
 
 
@@ -42,7 +45,7 @@ export class StampAdminViewComponent implements OnInit {
 
   constructor(
     private stampService: StampService,
-    private cookieService: CookieService,
+    public cookieService: CookieService,
     private empService: EmployeeService
   ) {
     empService.getEmployee().subscribe((res: any) => {
@@ -180,8 +183,12 @@ export class StampAdminViewComponent implements OnInit {
   }
 
   downloadPDF() {
-    let doc = new jsPDF('l', 'pt');
-    doc.autoTable(this.displayedColumnsPdf, this.getTableData()); // typescript compile time error
+    // let doc = new jsPDF('l', 'pt');
+    
+    var doc = new jsPDF('l', 'pt', 'a3');
+
+    // @ts-ignore
+    doc.autoTable(this.displayedColumnsPdfitl, this.getTableData()); // typescript compile time error
     doc.save(this.getFileName()+'.pdf');
   }
 

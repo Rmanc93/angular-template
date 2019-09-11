@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
-  Project Name
+    Registra Timbrature
 </mat-toolbar>
 
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header text-center">
-      <h4 class="modal-title w-100 font-weight-bold">Log In</h4>
+      <h4 class="modal-title w-100 font-weight-bold">Accesso</h4>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="modal-body mx-3">
@@ -13,7 +13,7 @@
           <mat-form-field>
             <input
               matInput
-              placeholder="Username"
+              placeholder="Nome utente"
               formControlName="username"
               autocomplete="off"
             />
@@ -37,7 +37,7 @@
       <mat-progress-bar mode="indeterminate" *ngIf="logbtnclick"></mat-progress-bar>
       <div class="modal-footer d-flex justify-content-center">
         <button mdbBtn color="primary" class="waves-light" mdbWavesEffect>
-          Log In
+            Accesso
         </button>
       </div>
     </form>

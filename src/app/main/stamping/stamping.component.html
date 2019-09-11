@@ -1,7 +1,7 @@
 <div class="row" style="width: 100%; margin: 0 !important; padding: 5px;">
   <div class="card card-cascade narrower mt-2 col-12">
       <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">New Stamping</h4>
+          <h4 class="modal-title w-100 font-weight-bold">Nuovo timbratura</h4>
         </div>
     <div class="card-body" style="text-align: center;">
      
@@ -16,7 +16,7 @@
         </div> -->
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <mat-label>Employee</mat-label>
+            <mat-label>Dipendente</mat-label>
             <mat-select formControlName="employee">
               <mat-option *ngFor="let elmnt of employees"  [value]="elmnt._links.self.href">
                 {{elmnt.username}}
@@ -27,7 +27,7 @@
 
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <mat-label>Catalog Stamping</mat-label>
+            <mat-label>Timbratura del catalogo</mat-label>
             <mat-select formControlName="stampCatalog">
               <mat-option *ngFor="let elmnt of stmpctlg" [value]="elmnt._links.self.href" >
                 {{elmnt.code}}
@@ -45,11 +45,11 @@
 
         <div class="form-row">
           <mat-form-field class="col-sm-12" [owlDateTimeTrigger]="dt1">
-              <input readonly matInput placeholder="Date & Time of Stamping"  formControlName="moblieDatetime" [owlDateTime]="dt1" > 
+              <input readonly matInput placeholder="Data e ora della timbratura"  formControlName="moblieDatetime" [owlDateTime]="dt1" > 
               <owl-date-time #dt1></owl-date-time>
           </mat-form-field>
         </div>
-        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Submit</button>
+        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Aggiungi</button>
       </form>
 
     </div>

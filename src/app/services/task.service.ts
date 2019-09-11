@@ -13,7 +13,7 @@ export class TaskService {
     ) { }
     
     getTasks(){
-      return this.http.get('api/tasks',{
+      return this.http.get('api/taskCatalogs',{
       });
     }
 }

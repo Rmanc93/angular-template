@@ -56,10 +56,10 @@ export class StampingComponent implements OnInit {
       console.log(this.stampForm.value);
       this.stampService.saveStamp(this.stampForm.value).subscribe(
         () =>{
-          this._snackBar.open('Stamp Saving...', 'Done!', {
+          this._snackBar.open('', 'Fatto!', {
             duration: 2000,
           });
-          this.router.navigate(['./'])
+          this.router.navigate(['./adminstampingview'])
         }
       )
     }

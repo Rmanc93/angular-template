@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           this.cookieService.set('UName', res.username, null, '/', null, false);
           this.cookieService.set('type', res.role.name, null, '/', null, false);
           this.cookieService.set('id', res.id, null, '/', null, false);
-          this.cookieService.set('lng', 'eng', null, '/', null, false);
+      //    this.cookieService.set('lng', 'eng', null, '/', null, false);
           if (res.role.name === 'ROLE_ADMIN') {
             this.router.navigate(['./adminstampingview']);
           } else { this.router.navigate(['./stampingview']); }

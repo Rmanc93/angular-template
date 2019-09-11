@@ -37,7 +37,7 @@ export class EmployeeCreationComponent implements OnInit {
     })
 
     taskService.getTasks().subscribe((res: any) => {
-      this.tasks = res._embedded.tasks
+      this.tasks = res._embedded.taskCatalogs
     });
   }
 
@@ -45,14 +45,13 @@ export class EmployeeCreationComponent implements OnInit {
   }
 
   onSubmit() {
-console.log('..............',this.emplForm.value);
 
     if (this.emplForm.valid) {
       this.emplService.saveEmployee(this.emplForm.value).subscribe(() => {
-        this.snackbar.open('Employee Creation...', 'Done!', {
+        this.snackbar.open('', 'Fatto!', {
           duration: 2000,
         });
-        this.router.navigate(['./'])
+        this.router.navigate(['./adminstampingview'])
       })
     }
   }

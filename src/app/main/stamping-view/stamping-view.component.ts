@@ -26,7 +26,7 @@ export class StampingViewComponent implements OnInit {
 
   constructor(
     private stampService : StampService,
-    private cookieService: CookieService
+    public cookieService: CookieService
   ) { 
      
   }

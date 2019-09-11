@@ -1,26 +1,26 @@
 <div class="row" style="width: 100%; margin: 0 !important; padding: 5px;">
   <div class="card card-cascade narrower mt-2 col-12">
     <div class="modal-header text-center">
-      <h4 class="modal-title w-100 font-weight-bold">New Employee</h4>
+      <h4 class="modal-title w-100 font-weight-bold">Nuovo Impiegato</h4>
     </div>
     <div class="card-body" style="text-align: center;">
       <form [formGroup]="emplForm" (ngSubmit)="onSubmit()">
 
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <input matInput formControlName="name" placeholder="First Name">
+            <input matInput formControlName="name" placeholder="Nome">
           </mat-form-field>
         </div>
 
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <input matInput formControlName="sName" placeholder="Surname">
+            <input matInput formControlName="sName" placeholder="Cognome">
           </mat-form-field>
         </div>
 
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <input matInput formControlName="username" placeholder="Username">
+            <input matInput formControlName="username" placeholder="codice matricola">
           </mat-form-field>
         </div>
 
@@ -36,16 +36,16 @@
 
         <div class="form-row">
           <mat-form-field class="col-sm-12">
-            <mat-label>Task</mat-label>
+            <mat-label>Mansione</mat-label>
             <mat-select formControlName="task">
               <mat-option *ngFor="let elmnt of tasks" [value]="elmnt._links.self.href">
-                {{elmnt.ctlgJobNmbr}}
+                {{elmnt.description}}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
-        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Create</button>
+        <button type="submit" mdbBtn color="primary" style="float: right;" class="mt-0">Aggiungi</button>
       </form>
     </div>
   </div>
