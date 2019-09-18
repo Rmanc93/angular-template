@@ -28,7 +28,8 @@ export class StampAdminViewComponent implements OnInit {
   viewtable = false;
   option;
   fromDate: Date;
-  toDate: Date;
+  toDate: Date  = new Date();
+  today: Date = new Date();
   username = '';
   body: HttpParams;
   search = false;
