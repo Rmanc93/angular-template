@@ -45,8 +45,6 @@ export class LoginService {
   }
 
   getUserByUname() {
-    
-
     return this.http.get('api/owndetails', {
       headers: new HttpHeaders()
         .set('Authorization', 'Bearer ' + this.cookieService.get('at'))

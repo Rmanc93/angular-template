@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef } from '@angular/material';
+declare var device;
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,11 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-  ngOnInit() { }
+  ngOnInit() {
+    // document.addEventListener("deviceready", function() {
+    //   alert(device.platform);
+    //   }, false);
+   }
   onSubmit() {
     if (this.loginForm.invalid) {
       return;

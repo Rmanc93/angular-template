@@ -1,1 +1,1 @@
-export const BasePath : string = 'http://localhost:8088/';
+export const BasePath : string = 'http://10.71.65.211:8088/';
