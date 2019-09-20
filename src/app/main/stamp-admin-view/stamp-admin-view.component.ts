@@ -182,6 +182,7 @@ export class StampAdminViewComponent implements OnInit {
     }
     return this.fileName;
   }
+  
 
   downloadPDF() {
     // let doc = new jsPDF('l', 'pt');
@@ -191,6 +192,8 @@ export class StampAdminViewComponent implements OnInit {
     // @ts-ignore
     doc.autoTable(this.displayedColumnsPdfitl, this.getTableData()); // typescript compile time error
     doc.save(this.getFileName()+'.pdf');
+    
   }
+  
 
 }
