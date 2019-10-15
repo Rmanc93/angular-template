@@ -4,9 +4,9 @@ version="1.0.0"
 xmlns="http://www.w3.org/ns/widgets" 
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Timbra con QR</name>
+    <name>Timbra con QR (test)</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+       Test Distribution of Timbra con QR App By SoftCode Solutions
     </description>
     <author email="asith93@live.com" href="http://cordova.io">
         SoftCode Solutions
