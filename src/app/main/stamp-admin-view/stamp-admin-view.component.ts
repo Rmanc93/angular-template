@@ -10,6 +10,7 @@ import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { DatePipe } from '@angular/common';
 
+declare const $;
 
 @Component({
   selector: 'app-stamp-admin-view',
@@ -123,6 +124,15 @@ export class StampAdminViewComponent implements OnInit {
 
 
   ngOnInit() {
+
+    $(function () {
+      $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+    });
   }
 
   getTableData() {
