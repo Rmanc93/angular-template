@@ -38,7 +38,7 @@
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^2.3.5",
     "material-design-icons": "^3.0.1",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "ng-multiselect-dropdown": "^0.2.3",
     "ng-pick-datetime": "^7.0.0",
     "ng-pick-datetime-moment": "^1.0.8",
